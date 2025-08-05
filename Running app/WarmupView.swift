@@ -110,6 +110,7 @@ struct WarmupView: View {
         }
         .animation(.easeInOut, value: showCancelAlert)
         .onAppear {
+            AudioManager.shared.startSilentAudio() // FIX: Add this line back
             HapticsManager.shared.playWarmupHaptic() // Add this line
             ActivityManager.shared.start(
                 warmUpDuration: warmUpDuration,
